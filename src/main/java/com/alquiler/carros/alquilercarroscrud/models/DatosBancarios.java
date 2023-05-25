@@ -11,7 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "datos_bancarios")
+@Table(name = "datos_bancarios", uniqueConstraints = {@UniqueConstraint(columnNames = {"numeroTarjeta","fechaVencimiento","cv"})})
 public class DatosBancarios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +19,7 @@ public class DatosBancarios {
 
     @Column(name = "entidad_financiera")
     private String entidadFinanciera;
-    @Column(name = "numero_tarjeta")
+    @Column(name = "numero_tarjeta", unique = true)
     private String numeroTarjeta;
     @Column(name = "fecha_vencimiento")
     private String fechaVencimiento;
