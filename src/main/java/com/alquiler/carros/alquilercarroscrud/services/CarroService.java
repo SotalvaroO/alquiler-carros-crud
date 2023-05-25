@@ -35,7 +35,7 @@ public class CarroService {
 
     public Carro actualizarCarro(Long carroId, Carro carro) {
         Carro carroDb = carroRepository.findById(carroId).orElse(null);
-        if (carroDb == null){
+        if (carroDb == null) {
             return null;
         }
         carroDb.setId(carroId);
@@ -45,5 +45,14 @@ public class CarroService {
         carroDb.setCapacidad(carro.getCapacidad());
 
         return carroRepository.save(carroDb);
+    }
+
+    public Carro borrarCarro(Long id) {
+        Carro carro = carroRepository.findById(id).orElse(null);
+        if (carro == null) {
+            return null;
+        }
+        carroRepository.delete(carro);
+        return carro;
     }
 }

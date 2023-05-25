@@ -11,7 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "datos_bancarios", uniqueConstraints = {@UniqueConstraint(columnNames = {"numeroTarjeta","fechaVencimiento","cv"})})
+@Table(name = "datos_bancarios", uniqueConstraints = {@UniqueConstraint(columnNames = {"entidad_financiera","numero_tarjeta","cv"})})
 public class DatosBancarios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

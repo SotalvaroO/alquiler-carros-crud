@@ -20,12 +20,15 @@ public class SolicitudAlquiler {
     private Long id;
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
-    @OneToOne(optional = false, cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToOne(optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "detalle_pago_id")
     private DetallePago detallePago;
     @ManyToOne(fetch = FetchType.EAGER,optional = false)
     @JoinColumn(name = "carro_alquiler_id")
     private CarroAlquiler carroAlquiler;
+    @ManyToOne(fetch = FetchType.EAGER,optional = false)
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
     @Enumerated(EnumType.STRING)
     private EstadoSolicitud estadoSolicitud;
     @Column(name = "fecha_recogida")

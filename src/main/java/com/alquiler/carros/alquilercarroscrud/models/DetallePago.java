@@ -19,7 +19,7 @@ public class DetallePago {
     @Enumerated(EnumType.STRING)
     @Column(name = "metodo_pago")
     private MetodoPago metodoPago;
-    @ManyToOne(optional = true)
+    @ManyToOne(optional = true, cascade = CascadeType.ALL)
     @JoinColumn(name = "datos_bancarios_id")
     private DatosBancarios datosBancarios;
 }

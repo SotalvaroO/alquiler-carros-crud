@@ -40,4 +40,13 @@ public class CarroController {
         }
         return ResponseEntity.ok(carroActualizar);
     }
+
+    @DeleteMapping(value = "{id}")
+    public ResponseEntity<Carro> borrarCarro(@PathVariable("id") Long id){
+        Carro carro = carroService.borrarCarro(id);
+        if (carro == null){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+        return ResponseEntity.ok(carro);
+    }
 }
